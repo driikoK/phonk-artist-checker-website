@@ -1,3 +1,3 @@
 module.exports ={
-    API_URL: 'http://107.175.36.34:3100',
+    API_URL: 'https://phonk-inspector.pp.ua/api',
 };

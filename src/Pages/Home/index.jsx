@@ -19,7 +19,7 @@ const Home = () => {
   }
 
   const sendResponse = () => {
-    client.get(`/artist/${value}`).then((response) => {
+    client.get(`/artist/${value.trim()}`).then((response) => {
       const newResponse = response.data.nationality ? {message: response.data.nationality, type: 'response'} : 
       {message: 'На жаль, не відомо, або ж ви допустили помилку 😔', type: 'response'};
 
@@ -35,9 +35,11 @@ const Home = () => {
   }
 
   const onSubmit = () => {
-    const newQuery = {message: value, type: 'query'};
+    if(value.trim() !== ''){
+    const newQuery = {message: value.trim(), type: 'query'};
     setHistories((prevHistories) => [...prevHistories, newQuery]);
     sendResponse();
+   }
   };
 
   const handleKeyDown = (e) => {
